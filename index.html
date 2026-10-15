@@ -175,6 +175,84 @@
       filter: brightness(1.05);
     }
 
+    /* INSIGHTS DISCOVERY */
+
+    .nav-links .insights-link {
+      color: var(--gold-bright);
+      border-bottom: 2px solid var(--gold);
+      padding: 10px 0;
+    }
+
+    .latest-insights {
+      padding: 48px 0;
+      scroll-margin-top: 140px;
+    }
+
+    .latest-insights .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .latest-insights .section-heading {
+      margin-bottom: 0;
+    }
+
+    .latest-insights h2 {
+      font-size: clamp(30px, 4vw, 38px);
+    }
+
+    .latest-insights .section-heading p {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .insights-grid {
+      display: grid;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .latest-insights .insight-card {
+      background: var(--paper-gold);
+      border-top: 3px solid var(--gold);
+    }
+
+    .insight-category {
+      color: var(--gold-dark);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .insight-card h3 {
+      font-size: clamp(21px, 2.2vw, 26px);
+      line-height: 1.3;
+    }
+
+    .insight-card h3 a {
+      color: var(--ink);
+    }
+
+    .insight-card p {
+      margin-bottom: 18px;
+    }
+
+    .insights-text-link {
+      display: inline-block;
+      color: #715018;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      padding: 10px 0;
+    }
+
+    .insight-card h3 a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
     /* HERO */
 
     .hero {
@@ -802,8 +880,24 @@
         width: min(100% - 40px, 760px);
       }
 
-      .nav-links a:not(.nav-button) {
+      .nav-links a:not(.nav-button):not(.insights-link) {
         display: none;
+      }
+
+      header nav {
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .latest-insights .container {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .brand-copy small {
@@ -924,7 +1018,7 @@
 
 <header>
   <div class="container">
-    <nav>
+    <nav aria-label="Main navigation">
 
       <a href="#" class="site-brand" aria-label="Excedere home">
         <img
@@ -943,7 +1037,7 @@
         <a href="#process">How It Works</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
-        <a href="insights/">Insights</a>
+        <a href="insights/" class="insights-link">Insights</a>
 
         <a
           href="https://cal.com/excedere/consultation"
@@ -1043,6 +1137,29 @@
 
     </div>
 
+  </section>
+
+
+  <!-- LATEST INSIGHTS -->
+
+  <section class="latest-insights" id="latest-insights" aria-labelledby="latest-insights-heading">
+    <div class="container">
+      <div class="section-heading">
+        <span>Ideas for growing businesses</span>
+        <h2 id="latest-insights-heading">Latest Insights</h2>
+        <p>Practical perspectives on outsourcing and building your global team.</p>
+        <a class="insights-text-link" href="insights/">View all insights →</a>
+      </div>
+      <!-- Keep the newest article first. Add future article cards here and to insights/index.html. -->
+      <div class="insights-grid">
+        <article class="card insight-card">
+          <div class="insight-category">Global Talent &amp; Outsourcing</div>
+          <h3><a href="insights/beyond-cost-savings.html">Beyond Cost Savings: How Outsourcing Helps Businesses Close Skills Gaps and Access Experienced Global Talent</a></h3>
+          <p>Explore how experienced global talent can help your business address skills gaps and build a more flexible team.</p>
+          <a class="insights-text-link" href="insights/beyond-cost-savings.html">Read the article →</a>
+        </article>
+      </div>
+    </div>
   </section>
 
 
