@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excedere Bespoke</title>
+<meta name="description" content="Tailored websites, business systems and workflow tools built around your business. Explore Excedere Bespoke and book a private consultation.">
+<link rel="canonical" href="https://excedere.website/bespoke/">
+<style>
+  :root { color-scheme: light; --navy: #172b3b; --gold: #85682f; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; min-height: 100%; background: #fff; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .intro { position: relative; min-height: max(540px, 100vh); min-height: max(540px, 100svh); }
+  .scene {
+    position: absolute; inset: 0; display: grid; place-content: center;
+    padding: 24px; text-align: center; opacity: 0;
+  }
+  .opening {
+    color: var(--gold); font-size: clamp(32px, 7vw, 88px);
+    font-weight: 300; letter-spacing: .19em; text-indent: .19em;
+    animation: passage 4.4s 1s ease-in-out both;
+  }
+  .promise {
+    color: var(--navy); font-size: clamp(21px, 3.3vw, 44px);
+    font-weight: 300; line-height: 1.5; letter-spacing: .025em;
+    animation: passage 4.4s 5.4s ease-in-out both;
+  }
+  .identity { animation: reveal 1.8s 9.8s ease-in-out forwards; }
+  .identity img {
+    display: block; width: clamp(112px, 17vw, 184px); height: auto;
+    margin: 0 auto 28px;
+  }
+  .name {
+    margin: 0; color: var(--navy); font-size: clamp(25px, 4vw, 40px);
+    font-weight: 400; letter-spacing: .19em; text-indent: .19em;
+  }
+  .bespoke {
+    margin: 14px 0 0; color: var(--gold); font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 400; letter-spacing: .42em; text-indent: .42em;
+  }
+  .scroll-hint {
+    position: absolute; bottom: max(24px, env(safe-area-inset-bottom));
+    left: 50%; transform: translateX(-50%); z-index: 1;
+    display: grid; justify-items: center; gap: 12px;
+    padding: 12px 18px; color: var(--navy); text-decoration: none;
+    font-size: 12px; letter-spacing: .1em; white-space: nowrap;
+    opacity: 0; visibility: hidden;
+    animation: hint 1.2s 12.2s ease-in-out both;
+  }
+  .scroll-hint svg { width: 16px; height: 22px; color: var(--gold); }
+  .scroll-hint:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  .business {
+    min-height: 100vh; min-height: 100svh; display: grid;
+    place-content: center; padding: 80px 24px; text-align: center;
+  }
+  .business::before {
+    content: ""; display: block; width: 40px; height: 1px;
+    margin: 0 auto 32px; background: var(--gold);
+  }
+  .business h2 {
+    max-width: 850px; margin: 0 auto; color: var(--navy);
+    font-size: clamp(34px, 5.5vw, 64px); line-height: 1.18;
+    font-weight: 300; letter-spacing: -.025em;
+  }
+  .business p {
+    max-width: 610px; margin: 24px auto 0; color: var(--navy);
+    font-size: clamp(17px, 1.6vw, 19px); line-height: 1.8;
+    font-weight: 300;
+  }
+  .business .lead {
+    max-width: 650px; margin-top: 32px;
+    font-size: clamp(22px, 2.5vw, 30px); line-height: 1.45;
+    font-weight: 400;
+  }
+  @keyframes passage { 0%, 100% { opacity: 0; } 34%, 64% { opacity: 1; } }
+  @keyframes reveal { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes hint {
+    from { opacity: 0; visibility: visible; }
+    to { opacity: 1; visibility: visible; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .scene { animation: none; }
+    .identity { opacity: 1; }
+    .scroll-hint { animation: none; opacity: 1; visibility: visible; }
+  }
+
+  .completion { color: var(--navy); }
+  .chapter { max-width: 1200px; margin: auto; padding: 120px 64px; }
+  .eyebrow { margin: 0 0 28px; color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+  .chapter h2, .closing h2 { margin: 0; max-width: 780px; font-size: clamp(36px, 5vw, 64px); line-height: 1.12; font-weight: 300; letter-spacing: -.035em; }
+  .intro-copy { max-width: 540px; margin: 28px 0 64px; font-size: 18px; line-height: 1.8; font-weight: 300; }
+  .service-list { border-top: 1px solid #172b3b26; }
+  .service { display: grid; grid-template-columns: 48px 1fr 1fr; gap: 24px; align-items: baseline; padding: 32px 0; border-bottom: 1px solid #172b3b26; }
+  .number { color: var(--gold); font-size: 11px; letter-spacing: .08em; }
+  .service h3 { margin: 0; font-size: clamp(23px, 3vw, 32px); font-weight: 300; letter-spacing: -.02em; }
+  .service p, .principles p, .steps p { margin: 0; font-size: 16px; line-height: 1.8; font-weight: 300; }
+  .difference { border-top: 1px solid #172b3b26; border-bottom: 1px solid #172b3b26; }
+  .difference-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; }
+  .principles { margin: 0; }
+  .principles div + div { margin-top: 32px; }
+  .principles dt { margin-bottom: 8px; font-size: 20px; font-weight: 400; }
+  .principles dd { margin: 0; }
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; list-style: none; padding: 0; margin: 64px 0 0; }
+  .steps li { border-top: 1px solid var(--gold); padding-top: 22px; }
+  .steps h3 { font-size: 20px; font-weight: 400; margin: 20px 0 12px; }
+  .steps p { font-size: 15px; }
+  .closing { padding: 140px 24px; text-align: center; border-top: 1px solid #172b3b26; }
+  .closing h2 { margin: auto; }
+  .closing .intro-copy { margin: 28px auto 40px; }
+  .consultation { display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 20px 28px; color: white; background: var(--navy); text-decoration: none; font-size: 15px; line-height: 1.4; border: 1px solid var(--navy); }
+  .consultation:hover { background: white; color: var(--navy); }
+  .completion a:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; }
+  .consultation-note { margin: 20px 0 0; font-size: 13px; line-height: 1.8; }
+  .preview-footer { max-width: 1200px; padding: 32px 64px; margin: auto; border-top: 1px solid #172b3b26; display: flex; justify-content: space-between; gap: 24px; font-size: 11px; letter-spacing: .12em; }
+  .preview-footer a { color: var(--navy); text-underline-offset: 5px; }
+  @media (max-width: 760px) {
+    .chapter { padding: 80px 24px; }
+    .service { grid-template-columns: 24px 1fr; gap: 16px; padding: 28px 0; }
+    .service p { grid-column: 2; }
+    .difference-layout { grid-template-columns: 1fr; gap: 48px; }
+    .steps { grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
+    .steps li { display: grid; grid-template-columns: 24px 1fr; column-gap: 16px; }
+    .steps h3 { margin: 0 0 8px; }
+    .steps p { grid-column: 2; }
+    .closing { padding: 96px 24px; }
+    .preview-footer { padding: 28px 24px; flex-wrap: wrap; }
+  }
+</style>
+<main aria-label="Excedere Bespoke">
+  <section class="intro" aria-label="Excedere Bespoke introduction">
+  <div class="scene opening" aria-hidden="true">BESPOKE</div>
+  <div class="scene promise" aria-hidden="true">Beyond Standard. Beyond Expectations.</div>
+  <div class="scene identity">
+    <img src="/excedere-icon.png" alt="Excedere emblem" width="1254" height="1254">
+    <h1 class="name">EXCEDERE</h1>
+    <p class="bespoke">BESPOKE</p>
+  </div>
+  <a class="scroll-hint" href="#business-heading">
+    <span>Scroll to discover</span>
+    <svg viewBox="0 0 16 22" fill="none" aria-hidden="true">
+      <path d="M8 1v19M2 14l6 6 6-6" stroke="currentColor" stroke-width="1"/>
+    </svg>
+  </a>
+  </section>
+  <section class="business" aria-labelledby="business-heading">
+    <h2 id="business-heading">Built around your business.</h2>
+    <p class="lead">Practical digital tools that simplify how you work.</p>
+    <p>We create tailored websites, business systems and workflow tools
+      that help you manage your work, serve your customers and grow your business.</p>
+  </section>
+
+  <div class="completion">
+    <section class="chapter" aria-labelledby="services-heading">
+      <p class="eyebrow">The possibilities</p>
+      <h2 id="services-heading">Your ambition.<br>Made tangible.</h2>
+      <p class="intro-copy">From a single tool to a connected business system, we shape the solution around the way you need to work.</p>
+      <div class="service-list">
+        <article class="service"><span class="number">01</span><h3>Bespoke CRM</h3><p>Bring customer relationships, conversations and opportunities into a system shaped around your sales process.</p></article>
+        <article class="service"><span class="number">02</span><h3>Call Assist</h3><p>Keep useful context, call notes and follow-up actions close at hand, so each conversation has a clear next step.</p></article>
+        <article class="service"><span class="number">03</span><h3>Workflow automation</h3><p>Reduce repetitive steps and create a clearer flow between the tasks your business depends on.</p></article>
+        <article class="service"><span class="number">04</span><h3>Project management</h3><p>Give projects, priorities and responsibilities a shared home, organised around how your team delivers.</p></article>
+        <article class="service"><span class="number">05</span><h3>Custom software</h3><p>Turn a particular business need into a focused application, with the functions that matter to you.</p></article>
+        <article class="service"><span class="number">06</span><h3>Websites</h3><p>Create a considered digital presence that expresses your business clearly and makes the next step feel natural.</p></article>
+        <article class="service"><span class="number">07</span><h3>Integrations</h3><p>Connect compatible tools and bring information together, with the scope guided by your systems and requirements.</p></article>
+      </div>
+    </section>
+    <section class="difference" aria-labelledby="difference-heading">
+      <div class="chapter difference-layout">
+        <div><p class="eyebrow">The Excedere difference</p><h2 id="difference-heading">Considered in<br>every detail.</h2><p class="intro-copy">The right solution should feel like a natural part of your business. Every decision starts there.</p></div>
+        <dl class="principles">
+          <div><dt>Quality</dt><dd><p>Care in the details, from the first interaction to the everyday experience.</p></dd></div>
+          <div><dt>Personalisation</dt><dd><p>Your priorities, processes and people inform the design.</p></dd></div>
+          <div><dt>Simplicity</dt><dd><p>Clear functions and purposeful design that make work easier to understand.</p></dd></div>
+          <div><dt>Reliability</dt><dd><p>Thoughtful testing, clear handover and attention to how the solution will be maintained.</p></dd></div>
+          <div><dt>Partnership</dt><dd><p>A direct conversation throughout, with decisions made together and support agreed around your needs.</p></dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="chapter" aria-labelledby="approach-heading">
+      <p class="eyebrow">Our approach</p><h2 id="approach-heading">Clarity at every step.</h2>
+      <p class="intro-copy">A considered process, from understanding the opportunity to putting the finished solution in your hands.</p>
+      <ol class="steps">
+        <li><span class="number">01</span><h3>Discover</h3><p>Understand your business, the challenge and what a useful outcome looks like.</p></li>
+        <li><span class="number">02</span><h3>Design</h3><p>Shape the experience and agree the scope, priorities and direction.</p></li>
+        <li><span class="number">03</span><h3>Develop</h3><p>Build with care, reviewing the details together as the solution takes shape.</p></li>
+        <li><span class="number">04</span><h3>Deliver</h3><p>Test the agreed scope and prepare a clear, practical handover.</p></li>
+        <li><span class="number">05</span><h3>Support</h3><p>Agree the ongoing support and refinements your solution needs.</p></li>
+      </ol>
+    </section>
+    <section class="closing" aria-labelledby="consultation-heading">
+      <p class="eyebrow">A private conversation</p><h2 id="consultation-heading">What could we<br>create for you?</h2>
+      <p class="intro-copy">Tell us what you have in mind. We will explore your priorities, discuss what is possible and consider the right next step.</p>
+      <a class="consultation" href="https://cal.com/excedere/bespoke">Book your private consultation <span aria-hidden="true">↗</span></a>
+      <p class="consultation-note">A free 30-minute conversation.<br>Space to explore, without obligation.</p>
+    </section>
+    <footer class="preview-footer"><span>EXCEDERE BESPOKE</span><a href="/">Excedere Home</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="#business-heading">Back to discover ↑</a></footer>
+  </div>
+</main>
+</html>
